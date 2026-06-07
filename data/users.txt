@@ -1,0 +1,8 @@
+john;1234;john@gmail.com
+alice;qwerty;alice@yahoo.com
+mike;pass123;mike@mail.com
+sara;admin;sara@outlook.com
+david;1111;david@gmail.com
+emma;abc123;emma@mail.com
+alex;password;alex@yahoo.com
+olga;qazwsx;olga@gmail.com
