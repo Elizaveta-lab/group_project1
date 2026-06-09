@@ -3,6 +3,7 @@ package org.example.UI;
 import org.example.models.User;
 import org.example.service.LoadFromFile;
 import org.example.service.LoadUsersResult;
+import org.example.service.RandomUserGeneration;
 import org.example.sorting.SortByEmail;
 import org.example.sorting.SortByPassword;
 import org.example.sorting.SortByUsername;
@@ -20,6 +21,7 @@ public class ConsoleUI {
     private final UserValidator validator = new UserValidator();
     private final Scanner scanner = new Scanner(System.in);
     private final LoadFromFile loadFromFile = new LoadFromFile();
+    private final RandomUserGeneration randomUserGeneration = new RandomUserGeneration();
 
     public void start() {
         runUILoop();
@@ -75,9 +77,17 @@ public class ConsoleUI {
                     break;
 
                 case 4:
-                    // generateRandomUsers();
+                    System.out.println("Enter the number of users to generate:");
+                    if (!scanner.hasNextInt()) {
+                        System.out.println("Error: Enter an integer!");
+                        scanner.nextLine();
+                        break;
+                    }
+                    int count = scanner.nextInt();
+                    scanner.nextLine();
+                    users.addAll(randomUserGeneration.generateRandomUsers(count));
+                    System.out.println("Users Generated Successfully!");
                     break;
-
                 case 5:
                     showSortingMenu();
                     break;
