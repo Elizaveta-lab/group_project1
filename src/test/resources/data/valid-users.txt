@@ -1,0 +1,3 @@
+john;123;john@mail.com
+alice;pass;alice@mail.com
+bob;qwerty;bob@mail.com
