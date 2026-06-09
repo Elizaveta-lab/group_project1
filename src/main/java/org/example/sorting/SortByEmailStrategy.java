@@ -8,16 +8,24 @@ public class SortByEmailStrategy implements SortStrategy{
     @Override
     public void sort(List<User> users) {
         int length = users.size();
-        for (int gap = length/2; gap>0;gap/=2){
-            for (int i=gap; i<length;i++){
-                User temp = users.get(i);
-                int j=i;
-                while (j>=gap&& users.get(i - gap).getEmail().compareTo(temp.getEmail())>0){
+        int gap = 1;
+        User temp;
+
+        while (gap<= users.size() / 3){
+            gap = gap* 3 + 1;
+        }
+
+        while (gap>0){
+            for (int i = gap; i<length;i++){
+                temp = users.get(i);
+                int j = i;
+                while (j>gap-1&&users.get(j - gap).getEmail().compareTo(temp.getEmail())>0){
                     users.set(j, users.get(j - gap));
-                    j-=gap;
+                    j -= gap;
                 }
                 users.set(j, temp);
             }
+            gap = (gap - 1) / 3;
         }
     }
 }
