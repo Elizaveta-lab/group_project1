@@ -3,6 +3,9 @@ package org.example.UI;
 import org.example.models.User;
 import org.example.service.LoadFromFile;
 import org.example.service.LoadUsersResult;
+import org.example.sorting.SortByEmail;
+import org.example.sorting.SortByPassword;
+import org.example.sorting.SortByUsername;
 import org.example.validation.UserValidator;
 import org.example.validation.ValidationResult;
 
@@ -130,8 +133,6 @@ public class ConsoleUI {
             System.out.println(result.getError());
         }
     }
-
-    // метод отображения меню сортировки
     private void showSortingMenu() {
 
         while (true) {
@@ -158,16 +159,22 @@ public class ConsoleUI {
             switch (choice) {
                 case 1:
                     // sortByUsername();
+                    SortByUsername sort = new SortByUsername();
+                    sort.sort(users);
                     System.out.println("Sorting by username completed successfully.");
                     break;
 
                 case 2:
                     // sortByPassword();
+                    SortByPassword sort1 = new SortByPassword();
+                    sort1.sort(users);
                     System.out.println("Sorting by password completed successfully.");
                     break;
 
                 case 3:
                     // sortByEmail();
+                    SortByEmail sort2 = new SortByEmail();
+                    sort2.sort(users);
                     System.out.println("Sorting by email completed successfully.");
                     break;
 
